@@ -1,6 +1,5 @@
 import React from "react";
-import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
-import TemplatePage from "../Atomic/template/TemplatePage";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
 import dataRoutes from "./dataRoutes";
 
 const Router = () => {

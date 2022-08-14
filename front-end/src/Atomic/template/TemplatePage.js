@@ -11,10 +11,12 @@ import AtomBox from "../atoms/AtomBox";
 import AtomCssBaseline from "../atoms/AtomCssBaseline";
 import AtomAppBar from "../atoms/AtomAppBar";
 import AtomIconButton from "../atoms/AtomIconButton";
-import AtomTypography from "../atoms/AtomTypography";
 import AtomDrawer from "../atoms/AtomDrawer";
 import dataRoutes from "../../router/dataRoutes";
 import { useNavigate } from "react-router-dom";
+import AtomGrid from "../atoms/AtomGrid";
+import AtomButton from "../atoms/AtomButton";
+import AtomRouteLink from "../atoms/AtomRouteLink";
 
 const drawerWidth = 240;
 
@@ -36,13 +38,12 @@ const TemplatePage = (props) => {
         {dataRoutes.map((value, index) => (
           <AtomListItem key={index} disablePadding>
             <AtomListItemButton onClick={() => navigate(`${value.path}`)}>
-              <AtomListItemIcon></AtomListItemIcon>
+              <AtomListItemIcon>{value.icon}</AtomListItemIcon>
               <AtomListItemText primary={value.name} />
             </AtomListItemButton>
           </AtomListItem>
         ))}
       </AtomList>
-      <AtomDivider />
     </div>
   );
 
@@ -53,10 +54,11 @@ const TemplatePage = (props) => {
       <AtomCssBaseline />
       <AtomAppBar
         position="fixed"
-        sx={{
+        sx={(theme) => ({
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           ml: { sm: `${drawerWidth}px` },
-        }}
+          backgroundColor: theme.palette.background.paper,
+        })}
       >
         <AtomToolbar>
           <AtomIconButton
@@ -65,9 +67,26 @@ const TemplatePage = (props) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           ></AtomIconButton>
-          <AtomTypography variant="h6" noWrap component="div">
-            Responsive drawer
-          </AtomTypography>
+          <AtomGrid
+            container
+            alignItems={"center"}
+            justifyContent={"space-between"}
+          >
+            <AtomGrid item xs={4}>
+              <AtomBox
+                component="img"
+                src="/images/data-classification.png"
+                sx={{ width: "50px" }}
+              ></AtomBox>
+            </AtomGrid>
+            <AtomGrid item>
+              {dataRoutes.map((value, index) => (
+                <AtomButton component={AtomRouteLink} to={value.path}>
+                  {value.name}
+                </AtomButton>
+              ))}
+            </AtomGrid>
+          </AtomGrid>
         </AtomToolbar>
       </AtomAppBar>
       <AtomBox
@@ -110,14 +129,13 @@ const TemplatePage = (props) => {
       </AtomBox>
       <AtomBox
         component="main"
-        sx={(theme) => ({
+        sx={{
           flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
-        })}
+        }}
       >
         <AtomToolbar />
-
         {props.content}
       </AtomBox>
     </AtomBox>
