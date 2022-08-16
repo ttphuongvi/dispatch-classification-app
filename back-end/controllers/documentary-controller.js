@@ -19,13 +19,13 @@ const client = new vision.ImageAnnotatorClient({
 });
 
 const keywords = [
-  ["hướng dẫn", "giải thích"], // hướng dẫn
-  ["kết quả", "giải thích", "số niêm phong"], // giải thích
-  ["chỉ đạo", "triển khai", "yêu cầu", "khẩn trương", "thực hiện nghiêm", "nghiêm túc", "tăng cường", "công tác", "tiếp tục"], // chỉ đạo
-  ["đôn đốc", "nhắc nhở", "thực hiện", "chỉ đạo", "triển khai", "yêu cầu", "khẩn trương", "căn cứ", "kiểm tra"], // đôn đốc, nhắc nhở
-  ["đề nghị", "đăng ký kiểm tra xác nhận", "thực hiện chỉ đạo", "ý kiến chỉ đạo", "quy định", "yêu cầu"], // đề nghị, yêu cầu
-  ["phúc đáp", "nhận được văn bản", "yêu cầu", "trả lời công văn", "căn cứ công văn", "về vấn đề", "ý kiến như sau", "trả lời như sau", "trả lời thêm", "chịu trách nhiệm"], // phúc đáp
-  ["xin ý kiến", "góp ý", "ý kiến đóng góp"], // xin ý kiến
+  ["hướng dẫn", "ý kiến", "thực hiện", "chỉ đạo", "triển khai", "thực hiện công văn", "căn cứ quyết định", "căn cứ thông tư", "thực hiện nghị quyết"], // hướng dẫn
+  ["kết quả", "giải thích", "triển khai", "chỉ đạo", "trách nhiệm", "thực hiện"], // giải thích
+  ["chỉ đạo", "triển khai", "khẩn trương", "thực hiện nghiêm", "nghiêm túc", "tăng cường", "công tác", "tiếp tục", "khẩn trương triển khai thực hiện", "gấp rút", "đảm bảo", "trách nhiệm", "phải"], // chỉ đạo
+  ["đôn đốc", "nhắc nhở", "thực hiện", "chỉ đạo", "triển khai", "khẩn trương", "căn cứ", "kiểm tra"], // đôn đốc, nhắc nhở
+  ["đề nghị", "đăng ký kiểm tra xác nhận", "thực hiện chỉ đạo", "ý kiến chỉ đạo", "quy định", "yêu cầu", "cung cấp"], // đề nghị, yêu cầu
+  ["phúc đáp", "nhận được văn bản", "trả lời", "căn cứ công văn", "về vấn đề", "ý kiến như sau", "chịu trách nhiệm", "phản hồi"], // phúc đáp
+  ["xin ý kiến", "góp ý", "ý kiến đóng góp", "dự thảo", "xin phép", "kế hoạch", "tờ trình"], // xin ý kiến
 ];
 
 function detectTextFromImage(imagePath, req, res) {
