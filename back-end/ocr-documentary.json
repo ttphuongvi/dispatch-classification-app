@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "ocr-documentary",
+  "private_key_id": "ab35361b3be1b1f5754435f2c1ebf4530d39684a",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCkJ0+vC69VfsAy\nzi+7+xft/2JHvTzp7fotZ4voCDHuEFsSoUxUG7RgVSmPoJ03SUQTwX4TXLYiANxV\nPMBVT+U+8DjerTYh48Z80jzxFquUjZGuFmVq+SuxCWqpb87M5wha0uuU0QTGjv4T\n+uSBHIskxiO6lTX7nJwHi0v/IOvYr9rtcF6nq4pcFT3xw8b53CxTa6DQBZSlWlXQ\n3YyvH38/gIFnvdM+ZGCU/sJJYpAynJLVlP6pGacXomIx9m2gYnFiEzlgJmrLo3TV\noFALA6VQOlay2Kx9Ov3calNoflMGLnR22/+HSW9Imp3utVCwe/XIdqusZTZm/Db4\n7bJo0qe/AgMBAAECggEAI4+mmgfAgJd4YKk9Ow5+1R7Ftj/fMdhNocd0Thx0YJvn\nduY9iF0GGvZoDgbf+Cmll1gMDXrAtCYWlVqXWgP4aEWXNFo2x2m2RrUu4ZWlLwXq\nQNn2N5HqLqyZEEK5/LayHybhRThwvekdTsvD89pwpFNOSy3m5266eIHrQUZrAWJi\nIOBH4KHVmf40AX5SFbxGo8BdiqMp9Qx/eCJrmzUDqpk/qogVomvf0FhvqH6ur44h\nek+CqYlJRtAhtaOcQ0wSYAhvk+1DGxgR96ylBF0Is3MB6QlN8N/gE9jZ4/eniCmf\nNRQ6INl5vPTgMMZ7jJeS8bc7jP9jmwfDAppZ6f3uYQKBgQDh31eUNSnH7hUff7zA\nlYWDO3+uTWkltT5puoCCPjvzUs+DCrKp6ebumFm35palE8ayqk1OpaOuQ/yCicHK\nRxMun599BzvIE+BzWsFlC8df+uqmD4MLekKY26CnrRxv6R7nV5LmNfjhHxaUXzUS\nt/nx6a6wVXZxGAexR4W+jimunwKBgQC6DIL/90SQ36fRyBgbtocj2a+3o0e4a7uW\n5VjjpOzVwsm+8TGQsdHx5bRN1VpBLgVqKftjbv3eWt3cTq7pD0jwDERNYooF6Sxo\nKf+IgCrqHOxrxDqSxcsS2Sf6v6MPvEG3gFKI2WCXtgOSBN9zYyJN2P1sARh3Yy4B\nY/R2JHcS4QKBgBlUBykacQ33V60JkOvzmF4n7OBp09GjqlUG0eRJAEX/0j86kuBU\n102IDf9+PwRR3GUqjbK1Bk7DVux4cB+zqqX+xk6p4f1EpVWqJqejE39izq9CbAp8\ncj1b238R/W9bL9j3TAS+pqLv7oNCzdvEf6Wt86XYX4i9DhfGEmxU2r23AoGAMSVc\n9YC7/AkYq7HPrIJq8G1wnXHkYDMVOqca9Ad9CHqMEIRmM3LFosCrAGR7kvw1MfYl\nEf8f0LzwHmIqkiYXflG/OTHug+E0ec+eUNCKhY1eZplPX7YgDrqOdQ5qZJ22PmMH\nal8BxRGvn8Lpw/FL/oRzbTRc4iyw2m0tBohbbAECgYAqn27kOsIw+IM/bxGKtiSW\nyJsForEiSBrG09mPk8ldB+5y6wiOe5foJPPYoPsTVcHUGGqJVYgkQtCl8RUuE+oK\nQ+D0531IeGIuEELhrN/BXj6h7ZzYxUVSFGrwaxqU6FwoW6ZiID4BNZMHG4dKs2eM\nWtq7+dsfFMkQkfAXlNlHGA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "ocr-documentary-project@ocr-documentary.iam.gserviceaccount.com",
+  "client_id": "102281743860439425807",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/ocr-documentary-project%40ocr-documentary.iam.gserviceaccount.com"
+}
