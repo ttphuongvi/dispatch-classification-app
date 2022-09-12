@@ -28,6 +28,7 @@ const DispatchList = () => {
 
   const handleClassify = () => {
     alert("Hình ảnh thuộc loại công văn", "chỗ này điền kết quả nè");
+    handleClose();
   };
 
   const imageData = getImage(12, "Công văn hướng dẫn");
@@ -37,7 +38,7 @@ const DispatchList = () => {
         <>
           <Toolbar disableGutters sx={{ justifyContent: "flex-end" }}>
             <Button variant="contained" onClick={handleClickOpen}>
-              Thêm công văn
+              Phân loại công văn
             </Button>
             <Dialog open={open} onClose={handleClose}>
               <DialogTitle>Phân loại công văn</DialogTitle>

@@ -50,10 +50,10 @@ const TemplatePage = (props) => {
               sx={(theme) => ({
                 width: "100%",
                 "&.active": {
-                  color: theme.palette.primary.main,
-                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                  backgroundColor: theme.palette.primary.main,
+                  color: theme.palette.common.white,
                   "& .MuiListItemIcon-root": {
-                    color: theme.palette.primary.main,
+                    color: theme.palette.common.white,
                   },
                 },
               })}
@@ -73,9 +73,10 @@ const TemplatePage = (props) => {
                       width: "100%",
                       pl: 4,
                       "&.active": {
-                        color: theme.palette.primary.main,
+                        backgroundColor: theme.palette.primary.main,
+                        color: theme.palette.common.white,
                         "& .MuiListItemIcon-root": {
-                          color: theme.palette.primary.main,
+                          color: theme.palette.common.white,
                         },
                       },
                     })}
