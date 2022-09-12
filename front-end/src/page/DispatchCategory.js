@@ -1,5 +1,5 @@
 import React from "react";
-import TemplatePage from "../component/template/TemplatePage";
+import TemplatePage from "../component/TemplatePage";
 
 const DispatchCategory = () => {
   return <TemplatePage content={<>DispatchCategory</>}></TemplatePage>;

@@ -2,12 +2,20 @@ import DispatchCategory from "../page/DispatchCategory";
 import DispatchList from "../page/Home";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
-import ChatOutlinedIcon from "@mui/icons-material/ChatOutlined";
 import RequestPageOutlinedIcon from "@mui/icons-material/RequestPageOutlined";
 import EditNotificationsOutlinedIcon from "@mui/icons-material/EditNotificationsOutlined";
 import TouchAppOutlinedIcon from "@mui/icons-material/TouchAppOutlined";
 import ReplyAllOutlinedIcon from "@mui/icons-material/ReplyAllOutlined";
 import TipsAndUpdatesOutlinedIcon from "@mui/icons-material/TipsAndUpdatesOutlined";
+import DocumentScannerOutlinedIcon from "@mui/icons-material/DocumentScannerOutlined";
+import FormatQuoteOutlinedIcon from "@mui/icons-material/FormatQuoteOutlined";
+import InstructiveDispatch from "../page/InstructiveDispatch";
+import ExplainOfficialDispatch from "../page/ExplainOfficialDispatch";
+import RequestDispatch from "../page/RequestDispatch";
+import ReminderDispatch from "../page/ReminderDispatch";
+import CommandDispatch from "../page/CommandDispatch";
+import ReplyDispatch from "../page/ReplyDispatch";
+import ConsultDispatch from "../page/ConsultDispatch";
 
 const dataRoutes = [
   {
@@ -23,40 +31,46 @@ const dataRoutes = [
     path: "/DispatchCategory",
     children: [
       {
+        name: "Công văn hướng dẫn",
+        element: <InstructiveDispatch />,
+        icon: <DocumentScannerOutlinedIcon />,
+        path: "/InstructiveDispatch",
+      },
+      {
         name: "Công văn giải thích",
-        element: <DispatchCategory />,
-        icon: <ChatOutlinedIcon />,
-        path: "/DispatchCategory",
+        element: <ExplainOfficialDispatch />,
+        icon: <FormatQuoteOutlinedIcon />,
+        path: "/ExplainOfficialDispatch",
       },
       {
         name: "Công văn chỉ đạo",
-        element: <DispatchCategory />,
+        element: <CommandDispatch />,
         icon: <TouchAppOutlinedIcon />,
-        path: "/DispatchCategory",
+        path: "/CommandDispatch",
       },
       {
         name: "Công văn đôn đốc, nhắc nhở",
-        element: <DispatchCategory />,
+        element: <ReminderDispatch />,
         icon: <EditNotificationsOutlinedIcon />,
-        path: "/DispatchCategory",
+        path: "/ReminderDispatch",
       },
       {
         name: "Công văn đề nghị, yêu cầu",
-        element: <DispatchCategory />,
+        element: <RequestDispatch />,
         icon: <RequestPageOutlinedIcon />,
-        path: "/DispatchCategory",
+        path: "/RequestDispatch",
       },
       {
         name: "Công văn phúc đáp",
-        element: <DispatchCategory />,
+        element: <ReplyDispatch />,
         icon: <ReplyAllOutlinedIcon />,
-        path: "/DispatchCategory",
+        path: "/ReplyDispatch",
       },
       {
         name: "Công văn xin ý kiến",
-        element: <DispatchCategory />,
+        element: <ConsultDispatch />,
         icon: <TipsAndUpdatesOutlinedIcon />,
-        path: "/DispatchCategory",
+        path: "/ConsultDispatch",
       },
     ],
   },

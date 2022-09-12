@@ -4,14 +4,14 @@ import TemplatePage from "../component/TemplatePage";
 import Title from "../component/Title";
 import { getImage } from "../services/image";
 
-const imageData = getImage(12, "Công văn hướng dẫn");
+const imageData = getImage(12, "Công văn xin ý kiến");
 
-const InstructiveDispatch = () => {
+const ConsultDispatch = () => {
   return (
     <TemplatePage
       content={
         <>
-          <Title title="Công văn hướng dẫn"></Title>
+          <Title title="Công văn xin ý kiến"></Title>
           <ListDispatch data={imageData} />
         </>
       }
@@ -19,4 +19,4 @@ const InstructiveDispatch = () => {
   );
 };
 
-export default InstructiveDispatch;
+export default ConsultDispatch;

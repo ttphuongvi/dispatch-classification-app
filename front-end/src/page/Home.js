@@ -6,16 +6,11 @@ import {
   DialogContent,
   TextField,
   DialogActions,
-  Grid,
-  Link,
-  Card,
-  CardMedia,
-  CardContent,
-  Typography,
 } from "@mui/material";
+
 import React from "react";
-import { Link as LinkRoute } from "react-router-dom";
-import TemplatePage from "../component/template/TemplatePage";
+import ListDispatch from "../component/ListDispatch";
+import TemplatePage from "../component/TemplatePage";
 import Title from "../component/Title";
 import { getImage } from "../services/image";
 
@@ -31,7 +26,11 @@ const DispatchList = () => {
     setOpen(false);
   };
 
-  const imageData = getImage(12);
+  const handleClassify = () => {
+    alert("Hình ảnh thuộc loại công văn", "chỗ này điền kết quả nè");
+  };
+
+  const imageData = getImage(12, "Công văn hướng dẫn");
   return (
     <TemplatePage
       content={
@@ -57,43 +56,15 @@ const DispatchList = () => {
                 <Button variant="outlined" color="error" onClick={handleClose}>
                   Hủy
                 </Button>
-                <Button variant="contained">Phân loại</Button>
+                <Button onClick={handleClassify} variant="contained">
+                  Phân loại
+                </Button>
               </DialogActions>
             </Dialog>
           </Toolbar>
           <Title title="Tất cả công văn" />
-          <Grid container spacing={3}>
-            {imageData.map((item, idx) => {
-              return (
-                <Grid item xs={12} sm={6} md={3} key={idx}>
-                  <Link component={LinkRoute} to={item.id} underline="none">
-                    <Card
-                      elevation={2}
-                      sx={{
-                        "&:hover": {
-                          boxShadow: 3,
-                          transform: "scale(1.01)",
-                          transition: "all 0.3s",
-                        },
-                      }}
-                      // onClick={() => navigate("details")}
-                    >
-                      <CardMedia
-                        component="img"
-                        src={item.image || DEFAULT_IMG}
-                        sx={{ height: 150, backgroundColor: "#ddd" }}
-                      />
-                      <CardContent>
-                        <Typography sx={{ fontWeight: "bold" }}>
-                          {item.type}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </Link>
-                </Grid>
-              );
-            })}
-          </Grid>
+
+          <ListDispatch data={imageData} />
         </>
       }
     />

@@ -1,8 +1,7 @@
 import React from "react";
-import PropTypes from "prop-types";
 
-import dataRoutes from "../../router/dataRoutes";
-import { NavLink, useNavigate } from "react-router-dom";
+import dataRoutes from "../router/dataRoutes";
+import { NavLink } from "react-router-dom";
 
 import {
   AppBar,
@@ -34,8 +33,6 @@ const TemplatePage = (props) => {
     setMobileOpen(!mobileOpen);
   };
 
-  const navigate = useNavigate();
-
   const drawer = (
     <div>
       <Toolbar />
@@ -47,7 +44,20 @@ const TemplatePage = (props) => {
             key={index}
             disablePadding
           >
-            <ListItemButton onClick={() => navigate(`${value.path}`)}>
+            <ListItemButton
+              component={NavLink}
+              to={value.path}
+              sx={(theme) => ({
+                width: "100%",
+                "&.active": {
+                  color: theme.palette.primary.main,
+                  backgroundColor: alpha(theme.palette.primary.main, 0.1),
+                  "& .MuiListItemIcon-root": {
+                    color: theme.palette.primary.main,
+                  },
+                },
+              })}
+            >
               <ListItemIcon>{value.icon}</ListItemIcon>
               <ListItemText primary={value.name} />
             </ListItemButton>
@@ -55,7 +65,21 @@ const TemplatePage = (props) => {
             <Collapse in={true} timeout="auto" unmountOnExit>
               <List component="div" disablePadding>
                 {value.children?.map((item, idx) => (
-                  <ListItemButton key={idx} sx={{ pl: 4 }}>
+                  <ListItemButton
+                    key={idx}
+                    component={NavLink}
+                    to={item.path}
+                    sx={(theme) => ({
+                      width: "100%",
+                      pl: 4,
+                      "&.active": {
+                        color: theme.palette.primary.main,
+                        "& .MuiListItemIcon-root": {
+                          color: theme.palette.primary.main,
+                        },
+                      },
+                    })}
+                  >
                     <ListItemIcon>{item.icon}</ListItemIcon>
                     <ListItemText primary={item.name} />
                   </ListItemButton>
@@ -168,13 +192,11 @@ const TemplatePage = (props) => {
         }}
       >
         <Toolbar />
+
         {props.content}
       </Box>
     </Box>
   );
-};
-TemplatePage.propTypes = {
-  content: PropTypes.node,
 };
 
 export default TemplatePage;

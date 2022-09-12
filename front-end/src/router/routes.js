@@ -13,6 +13,11 @@ const Router = () => {
             <Route key={index} path={route.path} element={route.element} />
           );
         })}
+        {dataRoutes[1].children.map((route, index) => {
+          return (
+            <Route key={index} path={route.path} element={route.element} />
+          );
+        })}
       </Routes>
     </BrowserRouter>
   );
