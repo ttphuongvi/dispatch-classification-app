@@ -1,22 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import AtomToolbar from "../atoms/AtomToolbar";
-import AtomDivider from "../atoms/AtomDivider";
-import AtomList from "../atoms/AtomList";
-import AtomListItem from "../atoms/AtomListItem";
-import AtomListItemButton from "../atoms/AtomListItemButton";
-import AtomListItemIcon from "../atoms/AtomListItemIcon";
-import AtomListItemText from "../atoms/AtomListItemText";
-import AtomBox from "../atoms/AtomBox";
-import AtomCssBaseline from "../atoms/AtomCssBaseline";
-import AtomAppBar from "../atoms/AtomAppBar";
-import AtomIconButton from "../atoms/AtomIconButton";
-import AtomDrawer from "../atoms/AtomDrawer";
+
 import dataRoutes from "../../router/dataRoutes";
-import { useNavigate } from "react-router-dom";
-import AtomGrid from "../atoms/AtomGrid";
-import AtomButton from "../atoms/AtomButton";
-import AtomRouteLink from "../atoms/AtomRouteLink";
+import { NavLink, useNavigate } from "react-router-dom";
+
+import {
+  AppBar,
+  Box,
+  Button,
+  Collapse,
+  CssBaseline,
+  Divider,
+  Drawer,
+  Grid,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  Toolbar,
+} from "@mui/material";
+import { alpha } from "@mui/material/styles";
+import { deepOrange } from "@mui/material/colors";
 
 const drawerWidth = 240;
 
@@ -32,27 +38,43 @@ const TemplatePage = (props) => {
 
   const drawer = (
     <div>
-      <AtomToolbar />
-      <AtomDivider />
-      <AtomList>
+      <Toolbar />
+      <Divider />
+      <List>
         {dataRoutes.map((value, index) => (
-          <AtomListItem key={index} disablePadding>
-            <AtomListItemButton onClick={() => navigate(`${value.path}`)}>
-              <AtomListItemIcon>{value.icon}</AtomListItemIcon>
-              <AtomListItemText primary={value.name} />
-            </AtomListItemButton>
-          </AtomListItem>
+          <ListItem
+            sx={{ flexDirection: "column", alignItems: "flex-start" }}
+            key={index}
+            disablePadding
+          >
+            <ListItemButton onClick={() => navigate(`${value.path}`)}>
+              <ListItemIcon>{value.icon}</ListItemIcon>
+              <ListItemText primary={value.name} />
+            </ListItemButton>
+
+            <Collapse in={true} timeout="auto" unmountOnExit>
+              <List component="div" disablePadding>
+                {value.children?.map((item, idx) => (
+                  <ListItemButton key={idx} sx={{ pl: 4 }}>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.name} />
+                  </ListItemButton>
+                ))}
+              </List>
+            </Collapse>
+          </ListItem>
         ))}
-      </AtomList>
+      </List>
     </div>
   );
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+
   return (
-    <AtomBox sx={{ display: "flex" }}>
-      <AtomCssBaseline />
-      <AtomAppBar
+    <Box sx={{ display: "flex" }}>
+      <CssBaseline />
+      <AppBar
         position="fixed"
         sx={(theme) => ({
           width: { sm: `calc(100% - ${drawerWidth}px)` },
@@ -60,42 +82,52 @@ const TemplatePage = (props) => {
           backgroundColor: theme.palette.background.paper,
         })}
       >
-        <AtomToolbar>
-          <AtomIconButton
+        <Toolbar>
+          <IconButton
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
-          ></AtomIconButton>
-          <AtomGrid
+          ></IconButton>
+          <Grid
             container
             alignItems={"center"}
             justifyContent={"space-between"}
           >
-            <AtomGrid item xs={4}>
-              <AtomBox
+            <Grid item xs={4}>
+              <Box
                 component="img"
                 src="/images/data-classification.png"
                 sx={{ width: "50px" }}
-              ></AtomBox>
-            </AtomGrid>
-            <AtomGrid item>
+              ></Box>
+            </Grid>
+            <Grid item>
               {dataRoutes.map((value, index) => (
-                <AtomButton component={AtomRouteLink} to={value.path}>
+                <Button
+                  key={index}
+                  style={({ isActive }) => ({
+                    color: isActive ? deepOrange[500] : deepOrange[500],
+                    background: isActive
+                      ? alpha(deepOrange[200], 0.2)
+                      : "transparent",
+                  })}
+                  component={NavLink}
+                  to={value.path}
+                >
                   {value.name}
-                </AtomButton>
+                </Button>
               ))}
-            </AtomGrid>
-          </AtomGrid>
-        </AtomToolbar>
-      </AtomAppBar>
-      <AtomBox
+            </Grid>
+          </Grid>
+        </Toolbar>
+      </AppBar>
+      <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
         aria-label="mailbox folders"
       >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <AtomDrawer
+        <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
@@ -112,8 +144,8 @@ const TemplatePage = (props) => {
           }}
         >
           {drawer}
-        </AtomDrawer>
-        <AtomDrawer
+        </Drawer>
+        <Drawer
           variant="permanent"
           sx={{
             display: { xs: "none", sm: "block" },
@@ -125,9 +157,9 @@ const TemplatePage = (props) => {
           open
         >
           {drawer}
-        </AtomDrawer>
-      </AtomBox>
-      <AtomBox
+        </Drawer>
+      </Box>
+      <Box
         component="main"
         sx={{
           flexGrow: 1,
@@ -135,10 +167,10 @@ const TemplatePage = (props) => {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
-        <AtomToolbar />
+        <Toolbar />
         {props.content}
-      </AtomBox>
-    </AtomBox>
+      </Box>
+    </Box>
   );
 };
 TemplatePage.propTypes = {
