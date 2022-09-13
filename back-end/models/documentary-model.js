@@ -3,7 +3,6 @@ var sql = require('./db.js');
 
 //Documentary object constructor
 var Documentary = function(documentary){
-    console.log(documentary);
     this.image_path = documentary.image_path;
     this.category_id = documentary.category_id;
 };

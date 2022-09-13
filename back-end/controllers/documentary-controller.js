@@ -21,7 +21,8 @@ const client = new vision.ImageAnnotatorClient({
 const keywords = [
   ["hướng dẫn", "ý kiến", "thực hiện", "chỉ đạo", "triển khai", "thực hiện công văn", "căn cứ quyết định", "căn cứ thông tư", "thực hiện nghị quyết"], // hướng dẫn
   ["kết quả", "giải thích", "triển khai", "chỉ đạo", "trách nhiệm", "thực hiện"], // giải thích
-  ["chỉ đạo", "triển khai", "khẩn trương", "thực hiện nghiêm", "nghiêm túc", "tăng cường", "công tác", "tiếp tục", "khẩn trương triển khai thực hiện", "gấp rút", "đảm bảo", "trách nhiệm", "phải"], // chỉ đạo
+  ["chỉ đạo", "triển khai", "khẩn trương", "thực hiện nghiêm", "nghiêm túc", "tăng cường", "công tác", "tiếp tục", "khẩn trương triển khai thực hiện", 
+    "gấp rút", "đảm bảo", "trách nhiệm", "phải"], // chỉ đạo
   ["đôn đốc", "nhắc nhở", "thực hiện", "chỉ đạo", "triển khai", "khẩn trương", "căn cứ", "kiểm tra"], // đôn đốc, nhắc nhở
   ["đề nghị", "đăng ký kiểm tra xác nhận", "thực hiện chỉ đạo", "ý kiến chỉ đạo", "quy định", "yêu cầu", "cung cấp"], // đề nghị, yêu cầu
   ["phúc đáp", "nhận được văn bản", "trả lời", "căn cứ công văn", "về vấn đề", "ý kiến như sau", "chịu trách nhiệm", "phản hồi"], // phúc đáp
@@ -33,12 +34,13 @@ function detectTextFromImage(imagePath, req, res) {
   let exactKeyword = 0;
   let maxKeyword = { number: 0, index: -1 };
   let size = keywords.length;
+
   client
     .textDetection(imagePath)
     .then((results) => {
       const result = results[0].textAnnotations;
       result.map((item) => (resultArray += " " + item.description));
-      console.log(resultArray);
+      // console.log(resultArray);
       for (let i = 0; i < size; i++) {
         for (let j = 0; j < keywords[i].length; j++) {
           if (resultArray.toLowerCase().match(keywords[i][j])) {
@@ -73,8 +75,8 @@ function createADocumentary(req, res, index) {
       .send({ error: true, message: "Please provide documentary" });
   } else {
     Documentary.createDocumentary(new_documentary, function (err, documentary) {
-      if (err) res.send(err);
-      res.json(documentary);
+      if (err) res.json(err);
+      res.send(new_documentary)
     });
   }
 }
@@ -88,6 +90,7 @@ exports.list_all_documentary = function (req, res) {
 
 exports.create_a_documentary = function (req, res) {
   upload(req, res, function (err) {
+    // console.log(req.file)
     detectTextFromImage("./uploads/" + req.file.filename, req, res);
   });
 };
