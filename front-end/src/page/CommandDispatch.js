@@ -4,7 +4,9 @@ import TemplatePage from "../component/TemplatePage";
 import Title from "../component/Title";
 import { getImage } from "../services/image";
 
-const imageData = getImage(12, "Công văn chỉ đạo");
+const dataList = JSON.parse(localStorage.getItem('list_dispatch_3'));
+
+const imageData = getImage(dataList, "Công văn chỉ đạo");
 
 const CommandDispatch = () => {
   return (

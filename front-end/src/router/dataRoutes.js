@@ -31,6 +31,7 @@ const dataRoutes = [
     path: "/DispatchCategory",
     children: [
       {
+        id: 1,
         name: "Công văn hướng dẫn",
         element: <InstructiveDispatch />,
         icon: <DocumentScannerOutlinedIcon />,
@@ -38,6 +39,7 @@ const dataRoutes = [
         desc: "Công văn hướng dẫn là công văn có nội dung hướng dẫn thực hiện về nội dung nào đó đã được quy định mà chưa rõ ràng hoặc chưa được quy định trong văn bản quy phạm pháp luật, văn bản nội bộ, quy định của đơn vị, cơ quan, tổ chức, doanh nghiệp theo yêu cầu của cấp dưới.",
       },
       {
+        id: 2,
         name: "Công văn giải thích",
         element: <ExplainOfficialDispatch />,
         icon: <FormatQuoteOutlinedIcon />,
@@ -45,6 +47,7 @@ const dataRoutes = [
         desc: "Công văn giải thích là công văn được dùng để cụ thể hóa, chi tiết hóa nội dung của các văn bản khác về thực hiện một công việc nào đó mà cơ quan, cá nhân nhận được chưa rõ, có thể hiểu không đúng về các quy định, nội dung của văn bản đó.",
       },
       {
+        id: 3,
         name: "Công văn chỉ đạo",
         element: <CommandDispatch />,
         icon: <TouchAppOutlinedIcon />,
@@ -52,6 +55,7 @@ const dataRoutes = [
         desc: "Công văn chỉ đạo là công văn của cấp trên thông tin cho cơ quan, bộ phận cấp dưới về các công việc cần triển khai, cần thực hiện. Nội dung của loại công văn này gần giống với chỉ thị, nên các chủ thể cần cẩn trọng khi sử dụng loại văn bản này.",
       },
       {
+        id: 4,
         name: "Công văn đôn đốc, nhắc nhở",
         element: <ReminderDispatch />,
         icon: <EditNotificationsOutlinedIcon />,
@@ -59,6 +63,7 @@ const dataRoutes = [
         desc: "Công văn đôn đốc nhắc nhở là công văn của cấp trên nhằm nhắc nhở, chấn chỉnh cấp dưới khi thực hiện các hoạt động, công việc, biện pháp, quyết định đã có yêu cầu thực hiện trước đó.",
       },
       {
+        id: 5,
         name: "Công văn đề nghị, yêu cầu",
         element: <RequestDispatch />,
         icon: <RequestPageOutlinedIcon />,
@@ -66,6 +71,7 @@ const dataRoutes = [
         desc: "Công văn đề nghị yêu cầu là công văn của các cơ quan, bộ phận cấp dưới, gửi cấp trên hoặc cơ quan, bộ phận ngang cấp để đề nghị, yêu cầu cơ quan, bộ phận đó cung cấp các thông tin, giải quyết công văn có liên quan đến nhiệm vụ, quyền hạn của các cơ quan đó.",
       },
       {
+        id: 6,
         name: "Công văn phúc đáp",
         element: <ReplyDispatch />,
         icon: <ReplyAllOutlinedIcon />,
@@ -73,6 +79,7 @@ const dataRoutes = [
         desc: "Là công văn dùng để trả lời về những vấn đề mà cơ quan, đơn vị, tổ chức, doanh nghiệp yêu cầu thuộc thẩm quyền, nhiệm vụ, quyền hạn của mình.",
       },
       {
+        id: 7,
         name: "Công văn xin ý kiến",
         element: <ConsultDispatch />,
         icon: <TipsAndUpdatesOutlinedIcon />,

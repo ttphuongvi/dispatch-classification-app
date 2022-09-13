@@ -22,6 +22,7 @@ import {
 } from "@mui/material";
 import { alpha } from "@mui/material/styles";
 import { deepOrange } from "@mui/material/colors";
+import { getAllDocumetary, getListDocumentaryFromTypeId } from "../services/dispatch";
 
 const drawerWidth = 240;
 
@@ -32,6 +33,15 @@ const TemplatePage = (props) => {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  const handleClickHome = (path) => {
+    if (path === "/")
+      getAllDocumetary();
+  }
+
+  const handleClick = (id) => {
+    getListDocumentaryFromTypeId(id);
+  }
 
   const drawer = (
     <div>
@@ -47,6 +57,7 @@ const TemplatePage = (props) => {
             <ListItemButton
               component={NavLink}
               to={value.path}
+              onClick={() => handleClickHome(value.path)}
               sx={(theme) => ({
                 width: "100%",
                 "&.active": {
@@ -68,6 +79,7 @@ const TemplatePage = (props) => {
                   <ListItemButton
                     key={idx}
                     component={NavLink}
+                    onClick={() => handleClick(item.id)}
                     to={item.path}
                     sx={(theme) => ({
                       width: "100%",

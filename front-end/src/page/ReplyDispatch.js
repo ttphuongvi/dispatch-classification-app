@@ -4,7 +4,9 @@ import TemplatePage from "../component/TemplatePage";
 import Title from "../component/Title";
 import { getImage } from "../services/image";
 
-const imageData = getImage(12, "Công văn phúc đáp");
+const dataList = JSON.parse(localStorage.getItem('list_dispatch_6'));
+
+const imageData = getImage(dataList, "Công văn phúc đáp");
 
 const ReplyDispatch = () => {
   return (

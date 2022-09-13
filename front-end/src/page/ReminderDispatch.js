@@ -4,7 +4,11 @@ import TemplatePage from "../component/TemplatePage";
 import Title from "../component/Title";
 import { getImage } from "../services/image";
 
-const imageData = getImage(12, "Công văn nhắc nhở");
+const dataList = JSON.parse(localStorage.getItem('list_dispatch_4'));
+
+console.log(dataList)
+
+const imageData = getImage(dataList, "Công văn nhắc nhở");
 
 const ReminderDispatch = () => {
   return (
